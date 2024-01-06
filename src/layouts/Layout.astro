@@ -2,6 +2,7 @@
 // import '@/scss/styles.scss';
 import ToTop from '@/components/ToTop.astro';
 import 'hamburgers/dist/hamburgers.min.css';
+import 'hamburgers/dist/hamburgers.min.css';
 interface Props {
   title: string;
 }
@@ -57,6 +58,7 @@ Amatitena goes beyond the palate."
 </style>
 <script is:inline src="/js/hammer.js"></script>
 <script>
+  import AOS from 'aos';
   const screenHeight = window.innerHeight;
   const header = document.getElementById('Header') as HTMLElement;
   const toTop = document.getElementById('to-top') as HTMLAnchorElement;
@@ -67,5 +69,5 @@ Amatitena goes beyond the palate."
     header.classList.add('bg');
     toTop.classList.add('show');
   }
-  console.log(window.scrollY);
+  AOS.init();
 </script>
