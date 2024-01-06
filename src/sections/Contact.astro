@@ -1,0 +1,35 @@
+---
+import Scroll from '@/components/Scroll.astro';
+---
+
+<section
+  class="w-fvw h-fvh bg-orange-500 flex items-center justify-center text-4xl text-white"
+  id="contact"
+>
+  Contact
+  <Scroll id="prev" href="#where-to-buy" className="top-24 hidden" />
+</section>
+<script>
+  const section = document.getElementById('contact') as HTMLElement;
+  const prev = section?.querySelector('.prev') as HTMLAnchorElement;
+  const next = section?.querySelector('.next') as HTMLAnchorElement;
+  section.addEventListener('wheel', (e) => {
+    if (e.deltaY < 0) {
+      prev?.click();
+    } else {
+      next?.click();
+    }
+  });
+  //@ts-ignore
+  const mc = new Hammer(section);
+  //@ts-ignore
+  mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+  mc.on('panup pandown', (e: any) => {
+    // console.log(e.deltaY);
+    if (e.deltaY > 0) {
+      prev?.click();
+    } else {
+      next?.click();
+    }
+  });
+</script>

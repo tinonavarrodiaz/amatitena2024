@@ -1,43 +1,21 @@
 ---
-import Header from '@/components/Header.astro';
 import Scroll from '@/components/Scroll.astro';
 ---
 
 <section
-  class="w-full h-fvh relative flex flex-col justify-center items-center text-header"
-  id="Home"
+  class="relative w-fvw h-fvh flex flex-col items-center justify-center text-text px-6"
+  id="about-us1"
 >
-  <Header />
-  <img
-    src="/img/land-100.webp"
-    class="absolute w-full
-    h-full
-    object-cover
-   scrollt-center z-0"
-    -z-10
-    alt="Land"
-  />
-  <p
-    class="uppercase text-center text-8 lg:text-[1.5625vw] tracking-[4px] relative z-1 text-current"
-  >
-    Discover<br />
-    Amatiteña
-  </p>
+  About Us
   <Scroll
     id="next"
-    href="#about-us"
+    href="#tequilas"
     className="bottom-20 lg:bottom-16 hidden"
   />
+  <Scroll id="prev" href="#about-us" className="top-24 hidden" />
 </section>
-<style lang="scss">
-  p {
-    &::after {
-      @apply content-[''] absolute block top-[150%] left-[50%] h-[38vh] w-[1px] bg-current;
-    }
-  }
-</style>
 <script>
-  const section = document.getElementById('Home') as HTMLElement;
+  const section = document.getElementById('about-us1') as HTMLElement;
   const prev = section?.querySelector('.prev') as HTMLAnchorElement;
   const next = section?.querySelector('.next') as HTMLAnchorElement;
   section.addEventListener('wheel', (e) => {

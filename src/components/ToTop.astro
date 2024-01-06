@@ -1,0 +1,32 @@
+---
+import Up from './icons/Up.astro';
+---
+
+<a
+  href="#Home"
+  id="to-top"
+  class="fixed block right-12 bottom-12 bg-bgWhite lg:text-text p-3 opacity-50 hover:opacity-80 transition-all rounded-xl border border-text invisible cursor-pointer"
+>
+  <Up class="size-6" />
+</a>
+<style>
+  #to-top {
+    &.show {
+      @apply visible;
+    }
+  }
+</style>
+<script>
+  const header = document.getElementById('Header') as any;
+  const toTop = document.getElementById('to-top') as any;
+  const windowInnerHeight = window.innerHeight;
+  let headerOffSetTop = header.parentElement.offsetTop;
+
+  window.addEventListener('scroll', (e) => {
+    if (window.scrollY >= headerOffSetTop + windowInnerHeight) {
+      toTop.classList.add('show');
+    } else {
+      toTop.classList.remove('show');
+    }
+  });
+</script>
