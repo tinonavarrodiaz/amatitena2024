@@ -56,3 +56,16 @@ Amatitena goes beyond the palate."
   }
 </style>
 <script is:inline src="/js/hammer.js"></script>
+<script>
+  const screenHeight = window.innerHeight;
+  const header = document.getElementById('Header') as HTMLElement;
+  const toTop = document.getElementById('to-top') as HTMLAnchorElement;
+  if (window.scrollY >= screenHeight) {
+    header.classList.add('sticky');
+  }
+  if (window.scrollY >= screenHeight * 2) {
+    header.classList.add('bg');
+    toTop.classList.add('show');
+  }
+  console.log(window.scrollY);
+</script>
